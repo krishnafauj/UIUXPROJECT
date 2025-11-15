@@ -1,98 +1,296 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import React from "react";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Feather } from "@expo/vector-icons";
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <ScrollView style={styles.container}>
+      {/* Top Feathers */}
+      <View style={styles.topBar}>
+        <Feather name="edit-3" size={22} color="#000" />
+        <Text style={styles.pageName}> My Profile</Text>
+        <Feather name="settings" size={22} color="#000" />
+      </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      {/* Header Card */}
+      <View style={styles.header}>
+        <View style={styles.profileImageContainer}>
+          <Feather name="user" size={24} color="#0B3A75" />
+        </View>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.profileName}>Amod Adarsh</Text>
+        </View>
+
+        <TouchableOpacity style={styles.upgradeBtn}>
+          <Text style={styles.upgradeText}>Upgrade</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* SECTION: Basic Details */}
+      <View style={styles.section}>
+        <Text style={styles.sectionHeading}>Personal Details</Text>
+        <View style={styles.headingDivider} />
+
+        {/* Date of birth + Place of birth */}
+        <View style={styles.rowBetween}>
+          <View style={styles.item}>
+            <Text style={styles.label}>Date of birth</Text>
+            <Text style={styles.value}>04-01-04</Text>
+          </View>
+          <View style={styles.item}>
+            <Text style={styles.label}>Place of birth</Text>
+            <Text style={styles.value}>-</Text>
+          </View>
+        </View>
+
+        <View style={styles.divider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>Gender</Text>
+          <Text style={styles.value}>Male</Text>
+        </View>
+
+        <View style={styles.divider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>Marital Status</Text>
+          <Text style={styles.value}>Single</Text>
+        </View>
+
+        <View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>Number of dependents</Text>
+          <Text style={styles.value}>00</Text>
+        </View>
+
+        <View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>Religion</Text>
+          <Text style={styles.value}>Hindu</Text>
+        </View>
+
+        <View style={styles.divider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>Category</Text>
+          <Text style={styles.value}>Hindu Other Backward Caste</Text>
+        </View>
+      </View>
+
+      {/* SECTION: Educational Details */}
+      <View style={styles.section}>
+        <Text style={styles.sectionHeading}>Occupational Details</Text>
+        <View style={styles.headingDivider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>Occupation Type</Text>
+          <Text style={styles.value}>Others</Text>
+        </View>
+<View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>Sub-Occupation Type</Text>
+          <Text style={styles.value}>Students</Text>
+        </View>
+      </View>
+
+      {/* SECTION: Occupational Details */}
+      <View style={styles.section}>
+        <Text style={styles.sectionHeading}>Educational Details</Text>
+        <View style={styles.headingDivider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>Qualification</Text>
+          <Text style={styles.value}>Matriculate</Text>
+        </View>
+      </View>
+
+      {/* SECTION: Contact Details */}
+      <View style={styles.section}>
+        <Text style={styles.sectionHeading}>Contact Details</Text>
+        <View style={styles.headingDivider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>Email</Text>
+          <Text style={styles.value}>amodadarsh25@gmail.com</Text>
+        </View>
+
+        <View style={styles.divider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>Phone Number</Text>
+          <Text style={styles.value}>7437483249</Text>
+        </View>
+
+        <View style={styles.divider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>Address</Text>
+          <Text style={styles.value}>Adarsh yesodharan , Raichur</Text>
+        </View>
+      </View>
+
+      {/* SECTION: Identification Details */}
+      <View style={styles.section}>
+        <Text style={styles.sectionHeading}>Identification Details</Text>
+        <View style={styles.headingDivider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>CIF No.</Text>
+          <Text style={styles.value}>XXXXXXXX1085</Text>
+        </View>
+
+        <View style={styles.divider} />
+
+        <View style={styles.item}>
+          <Text style={styles.label}>AADHAAR Vault No.</Text>
+          <Text style={styles.value}>XXXXXXXXUmVA</Text>
+        </View>
+
+        <View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>PAN</Text>
+          <Text style={styles.value}>XXXXXXXX324C</Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>Passport Number</Text>
+          <Text style={styles.value}>-</Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>CKYC Number</Text>
+          <Text style={styles.value}>XXXXXXXX6030</Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>Driving License</Text>
+          <Text style={styles.value}>-</Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>Voter ID</Text>
+          <Text style={styles.value}>-</Text>
+        </View>
+        <View style={styles.divider} />
+        <View style={styles.item}>
+          <Text style={styles.label}>Other</Text>
+          <Text style={styles.value}>-</Text>
+        </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
+    backgroundColor: "#F3F6FB",
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+
+  topBar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 18,
+    paddingTop: 50,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+
+  header: {
+    backgroundColor: "#0B3A75",
+    margin: 16,
+    marginBottom: 0,
+    padding: 18,
+    borderRadius: 14,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  profileImageContainer: {
+    width: 45,
+    height: 45,
+    borderRadius: 22,
+    marginRight: 14,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  profileName: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "600",
+  },
+
+  pageName: {
+    fontSize: 20,
+    color: "black",
+    fontWeight: "600",
+  },
+
+  upgradeBtn: {
+    backgroundColor: "#ffffff30",
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#fff",
+  },
+
+  upgradeText: {
+    color: "#fff",
+    fontSize: 12,
+  },
+
+  section: {
+    backgroundColor: "#fff",
+    marginHorizontal: 16,
+    marginTop: 14,
+    borderRadius: 14,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#E0E4EB",
+  },
+
+  sectionHeading: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#333",
+  },
+
+  headingDivider: {
+    height: 2,
+    backgroundColor: "#D4D7DE",
+    marginVertical: 10,
+  },
+
+  rowBetween: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  divider: {
+    height: 1,
+    backgroundColor: "#E6E6E6",
+    marginVertical: 12,
+    borderRadius: 1,
+  },
+
+
+  item: {},
+
+  label: {
+    fontSize: 13,
+    color: "#777",
+  },
+
+  value: {
+    marginTop: 3,
+    fontSize: 14,
+    color: "#222",
   },
 });

@@ -4,7 +4,6 @@
     "slug": "UIUX",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
     "scheme": "uiux",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
