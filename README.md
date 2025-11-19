@@ -41,7 +41,7 @@ Custom onboarding screens
 
 New user registration flow
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/dc28946c-bc61-45dc-aac7-ff6e043f5fb8" width="45%" /> <img src="https://github.com/user-attachments/assets/aecea624-d538-407c-8c79-5311dc4c3971" width="45%" /> </p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/dc28946c-bc61-45dc-aac7-ff6e043f5fb8" width="20%" /> <img src="https://github.com/user-attachments/assets/aecea624-d538-407c-8c79-5311dc4c3971" width="20%" /> </p>
 👤 Profile Screen
 
 Editable profile
@@ -50,17 +50,16 @@ Settings option
 
 KYC-style information layout (DOB, Aadhaar, PAN, Address, etc.)
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/7f25ec3c-8718-4e7d-8a60-34600c2b7dd5" width="45%" /> <img src="https://github.com/user-attachments/assets/28b6762a-cc56-49dd-a220-2c3ff8abecde" width="45%" /> </p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/7f25ec3c-8718-4e7d-8a60-34600c2b7dd5" width="20%" /> <img src="https://github.com/user-attachments/assets/28b6762a-cc56-49dd-a220-2c3ff8abecde" width="20%" /> </p>
 📂 Drawer Navigation
 
 Custom animated sidebar
-![WhatsApp Image 2025-11-19 at 1 03 28 PM](https://github.com/user-attachments/assets/c7574cc8-62b3-4a7f-9540-4b35ea9dd550)
+<p align="center"> <img src="https://github.com/user-attachments/assets/c7574cc8-62b3-4a7f-9540-4b35ea9dd550" width="20%" /> </p>
+
 
 Smooth open + close interactions
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/fc763787-ae48-4851-8e98-c7434019a879" width="50%" /> </p>
-
-<p align="center"> <img src="https://github.com/user-attachments/assets/72991026-91db-4c96-8ad3-3a68f43de602" width="40%" /> </p>
+<p align="center"> <img src="https://github.com/user-attachments/assets/fc763787-ae48-4851-8e98-c7434019a879" width="20%" /> <img src="https://github.com/user-attachments/assets/72991026-91db-4c96-8ad3-3a68f43de602" width="20%" /> </p>
 🏗 Expo + EAS Compatible
 Custom Splash Screen
 
