@@ -2,133 +2,158 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
   TextInput,
+  Image,
 } from "react-native";
 import { Ionicons, Feather } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Image as NBImage } from "native-base";
+
+const COLORS = {
+  primary: "#0B3A75",
+  white: "#ffffff",
+  text: "#1F2937",
+  textLight: "#6B7280",
+};
 
 export default function RelationshipOverview() {
   return (
-    <ScrollView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+    <SafeAreaView style={styles.container}>
+
+      {/* 🔵 BLUE HEADER (UNIFORM FOR ALL SCREENS) */}
+      <View style={styles.blueHeader}>
+        <Text style={styles.headerTitle}>Relationship Overview</Text>
+      </View>
+
+      {/* ⚪ WHITE CONTENT */}
+      <ScrollView style={styles.whiteArea} showsVerticalScrollIndicator={false}>
+
+        {/* ⭐ TOP ICON BAR + AVATAR */}
+        <View style={styles.topRow}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Image
+              source={{
+                uri: "https://randomuser.me/api/portraits/men/32.jpg",
+              }}
+              style={styles.avatar}
+            />
+            <Text style={styles.topTitle}>Overview</Text>
+          </View>
+
+          <View style={styles.iconRow}>
+            <Feather name="bar-chart-2" size={22} color="#000" />
+            <Feather name="bell" size={22} color="#000" style={{ marginLeft: 20 }} />
+          </View>
+        </View>
+
+        {/* 🔍 SEARCH BAR */}
+        <View style={styles.searchContainer}>
+          <Ionicons name="search" size={20} color={"#7a7a7a"} />
+          <TextInput placeholder="Search" style={styles.searchInput} />
+        </View>
+
+        {/* 🔵 TABS */}
+        <View style={styles.tabs}>
+          <TouchableOpacity style={styles.activeTab}>
+            <Text style={styles.activeTabText}>My Balance</Text>
+          </TouchableOpacity>
+
+          <Text style={styles.tab}>My Deposits</Text>
+          <Text style={styles.tab}>My Borrowings</Text>
+          <Text style={styles.tab}>My Insurance</Text>
+        </View>
+
+        {/* 💰 BALANCE CARD */}
+        <View style={styles.balanceCard}>
+          <View style={styles.balanceRow}>
+            <Text style={styles.balanceAmount}>₹1200</Text>
+            <Ionicons name="chevron-down" size={22} color="#6c6c6c" />
+          </View>
+
+          <View style={styles.accRow}>
+            <Text style={styles.accNumber}>xxxxxxx6551 (SINGLE)</Text>
+
+            <Image
+              source={{
+                uri: "https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg",
+              }}
+              style={styles.flag}
+            />
+          </View>
+
+          <View style={styles.actionRow}>
+            <TouchableOpacity style={styles.actionCol}>
+              <Ionicons name="add-circle-outline" size={32} color="#1E88E5" />
+              <Text style={styles.actionText}>Add money</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.actionCol}>
+              <Ionicons name="swap-horizontal" size={32} color="#1E88E5" />
+              <Text style={styles.actionText}>Bank Details</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.actionCol}>
+              <Ionicons name="ellipsis-horizontal-circle" size={32} color="#1E88E5" />
+              <Text style={styles.actionText}>More</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* 🧾 TRANSACTIONS */}
+        <View style={styles.transHeader}>
+          <Text style={styles.transTitle}>Transactions</Text>
+          <Ionicons name="ellipsis-horizontal" size={22} color="#999" />
+        </View>
+
+        {/* Transaction 1 */}
+        <View style={styles.transItem}>
           <Image
             source={{
-              uri: "https://randomuser.me/api/portraits/men/32.jpg",
+              uri: "https://cdn-icons-png.flaticon.com/512/3600/3600913.png",
             }}
-            style={styles.avatar}
+            style={styles.transIcon}
           />
-          <Text style={styles.headerTitle}>Relationship Overview</Text>
+
+          <View style={{ flex: 1 }}>
+            <Text style={styles.transName}>To Jane</Text>
+            <Text style={styles.transTime}>Today, 11:07 PM</Text>
+            <Text style={styles.transMsg}>Hello have a great day</Text>
+          </View>
+
+          <Text style={styles.amountPositive}>+₹589</Text>
         </View>
 
-        <View style={styles.headerIcons}>
-          <Feather name="bar-chart-2" size={22} color="black" />
-          <Feather name="bell" size={22} color="black" style={{ marginLeft: 20 }} />
-        </View>
-      </View>
-
-      {/* Search Bar */}
-      <View style={styles.searchContainer}>
-        <Ionicons name="search" size={20} color={"#7a7a7a"} />
-        <TextInput placeholder="Search" style={styles.searchInput} />
-      </View>
-
-      {/* Tabs */}
-      <View style={styles.tabs}>
-        <TouchableOpacity style={styles.activeTab}>
-          <Text style={styles.activeTabText}>My Balance</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.tab}>My Deposits</Text>
-        <Text style={styles.tab}>My Borrowings</Text>
-        <Text style={styles.tab}>My Insurance</Text>
-      </View>
-
-      {/* Balance Card */}
-      <View style={styles.balanceCard}>
-        <View style={styles.balanceRow}>
-          <Text style={styles.balanceAmount}>₹1200</Text>
-          <Ionicons name="chevron-down" size={22} color="#6c6c6c" />
-        </View>
-
-        <View style={styles.accRow}>
-          <Text style={styles.accNumber}>xxxxxxx6551 (SINGLE)</Text>
-
+        {/* Transaction 2 */}
+        <View style={styles.transItem}>
           <Image
             source={{
-              uri: "https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg",
+              uri: "https://cdn-icons-png.flaticon.com/512/1997/1997928.png",
             }}
-            style={styles.flag}
+            style={styles.transIcon}
+          />
+
+          <View style={{ flex: 1 }}>
+            <Text style={styles.transName}>Pm Care Fund</Text>
+            <Text style={styles.transTime}>Today, 11:05 PM</Text>
+          </View>
+
+          <Text style={styles.amountNegative}>-₹1200</Text>
+        </View>
+
+        {/* SBI LOGO */}
+        <View style={styles.bottomLogoWrap}>
+          <NBImage
+            source={require("@/assets/images/sbi.png")}
+            style={styles.bottomLogo}
+            resizeMode="contain"
           />
         </View>
 
-        {/* Action Buttons */}
-        <View style={styles.actionRow}>
-          <TouchableOpacity style={styles.actionCol}>
-            <Ionicons name="add-circle-outline" size={32} color="#1E88E5" />
-            <Text style={styles.actionText}>Add money</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.actionCol}>
-            <Ionicons name="swap-horizontal" size={32} color="#1E88E5" />
-            <Text style={styles.actionText}>Bank Details</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.actionCol}>
-            <Ionicons name="ellipsis-horizontal-circle" size={32} color="#1E88E5" />
-            <Text style={styles.actionText}>More</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      {/* Transactions Title */}
-      <View style={styles.transHeader}>
-        <Text style={styles.transTitle}>Transactions</Text>
-        <Ionicons name="ellipsis-horizontal" size={22} color="#999" />
-      </View>
-
-      {/* Transaction 1 */}
-      <View style={styles.transItem}>
-        <Image
-          source={{
-            uri: "https://cdn-icons-png.flaticon.com/512/3600/3600913.png",
-          }}
-          style={styles.transIcon}
-        />
-
-        <View style={{ flex: 1 }}>
-          <Text style={styles.transName}>To Jane</Text>
-          <Text style={styles.transTime}>Today, 11:07 PM</Text>
-          <Text style={styles.transMsg}>Hello have a great day</Text>
-        </View>
-
-        <Text style={styles.amountPositive}>+₹589</Text>
-      </View>
-
-      {/* Transaction 2 */}
-      <View style={styles.transItem}>
-        <Image
-          source={{
-            uri: "https://cdn-icons-png.flaticon.com/512/1997/1997928.png",
-          }}
-          style={styles.transIcon}
-        />
-
-        <View style={{ flex: 1 }}>
-          <Text style={styles.transName}>Pm Care Fund</Text>
-          <Text style={styles.transTime}>Today, 11:05 PM</Text>
-        </View>
-
-        <Text style={styles.amountNegative}>-₹1200</Text>
-      </View>
-
-      {/* Bottom Space */}
-      <View style={{ height: 40 }} />
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -138,13 +163,37 @@ export default function RelationshipOverview() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    paddingHorizontal: 16,
+    backgroundColor: COLORS.primary,
   },
 
-  // Header
-  header: {
-    marginTop: 55,
+  // 🔵 BLUE HEADER
+  blueHeader: {
+    height: 110,
+     marginTop:-20,
+    backgroundColor: COLORS.primary,
+    justifyContent: "flex-end",
+    paddingHorizontal: 20,
+    paddingBottom: 14,
+  },
+
+  headerTitle: {
+    color: COLORS.white,
+    fontSize: 26,
+    fontWeight: "700",
+  },
+
+  // ⚪ WHITE CONTENT
+  whiteArea: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+  },
+
+  // ⭐ TOP ROW WITH AVATAR + ICONS
+  topRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -157,16 +206,17 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 
-  headerTitle: {
-    fontSize: 20,
+  topTitle: {
+    fontSize: 18,
     fontWeight: "700",
+    color: COLORS.text,
   },
 
-  headerIcons: {
+  iconRow: {
     flexDirection: "row",
   },
 
-  // Search Bar
+  // 🔍 SEARCH BAR
   searchContainer: {
     marginTop: 18,
     backgroundColor: "#EFEFEF",
@@ -180,9 +230,10 @@ const styles = StyleSheet.create({
   searchInput: {
     marginLeft: 10,
     fontSize: 15,
+    color: COLORS.text,
   },
 
-  // Tabs
+  // 🔵 TABS
   tabs: {
     flexDirection: "row",
     marginTop: 20,
@@ -191,7 +242,6 @@ const styles = StyleSheet.create({
   },
 
   activeTab: {
-    backgroundColor: "#fff",
     paddingHorizontal: 14,
     paddingVertical: 6,
     borderRadius: 24,
@@ -200,25 +250,25 @@ const styles = StyleSheet.create({
   },
 
   activeTabText: {
-    color: "#000",
-    fontWeight: "bold",
+    fontWeight: "700",
+    color: COLORS.text,
   },
 
   tab: {
-    color: "#7a7a7a",
+    color: COLORS.textLight,
     fontSize: 14,
   },
 
-  // Balance Card
+  // 💰 BALANCE CARD
   balanceCard: {
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.white,
     borderRadius: 12,
     padding: 20,
     marginTop: 15,
+    elevation: 3,
     shadowColor: "#000",
-    shadowOpacity: 0.05,
+    shadowOpacity: 0.08,
     shadowRadius: 6,
-    elevation: 4,
   },
 
   balanceRow: {
@@ -241,13 +291,12 @@ const styles = StyleSheet.create({
 
   accNumber: {
     fontSize: 14,
-    color: "#444",
+    color: COLORS.textLight,
   },
 
   flag: {
     width: 34,
     height: 24,
-    resizeMode: "contain",
   },
 
   actionRow: {
@@ -266,7 +315,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
 
-  // Transaction section
+  // TRANSACTIONS
   transHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -299,7 +348,7 @@ const styles = StyleSheet.create({
 
   transTime: {
     fontSize: 13,
-    color: "#777",
+    color: COLORS.textLight,
   },
 
   transMsg: {
@@ -317,5 +366,17 @@ const styles = StyleSheet.create({
     color: "#D32F2F",
     fontSize: 15,
     fontWeight: "700",
+  },
+
+  // SBI LOGO
+  bottomLogoWrap: {
+    padding: 30,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  bottomLogo: {
+    width: "80%",
+    height: 60,
   },
 });

@@ -9,6 +9,8 @@ import {
   Linking,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Image as NBImage } from "native-base";
 
 // -------------------- TYPES --------------------
 interface ServiceItem {
@@ -28,93 +30,21 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 
 // -------------------- MOCK DATA --------------------
 const QUICK_ACTIONS: ServiceItem[] = [
-  {
-    id: "1",
-    title: "Manage PIN",
-    description: "Change ATM/Internet Banking PIN",
-    iconName: "key",
-    type: "quick",
-  },
-  {
-    id: "2",
-    title: "SMS Alerts",
-    description: "Instant transaction notifications",
-    iconName: "smartphone",
-    type: "quick",
-  },
-  {
-    id: "3",
-    title: "Stop Cheque",
-    description: "Halt cheque payment",
-    iconName: "slash",
-    type: "quick",
-  },
-  {
-    id: "4",
-    title: "Update KYC",
-    description: "Verify/Update personal details",
-    iconName: "user-check",
-    type: "quick",
-  },
+  { id: "1", title: "Manage PIN", description: "Change ATM/Internet Banking PIN", iconName: "key", type: "quick" },
+  { id: "2", title: "SMS Alerts", description: "Instant transaction notifications", iconName: "smartphone", type: "quick" },
+  { id: "3", title: "Stop Cheque", description: "Halt cheque payment", iconName: "slash", type: "quick" },
+  { id: "4", title: "Update KYC", description: "Verify/Update personal details", iconName: "user-check", type: "quick" },
 ];
 
 const SERVICE_CATEGORIES: ServiceItem[] = [
-  {
-    id: "5",
-    title: "Loans",
-    description: "Car, home, education loans",
-    iconName: "credit-card",
-    type: "category",
-  },
-  {
-    id: "6",
-    title: "Account Services",
-    description: "Nominee, alerts, statement",
-    iconName: "file-text",
-    type: "category",
-  },
-  {
-    id: "7",
-    title: "Tax & Investments",
-    description: "TDS, 15G/H, Mutual Funds",
-    iconName: "trending-up",
-    type: "category",
-  },
-  {
-    id: "8",
-    title: "Cheque Book",
-    description: "Order or stop cheque book",
-    iconName: "book",
-    type: "category",
-  },
-  {
-    id: "9",
-    title: "Pension Services",
-    description: "Pension info, forms",
-    iconName: "user",
-    type: "category",
-  },
-  {
-    id: "10",
-    title: "Locker",
-    description: "Manage locker services",
-    iconName: "lock",
-    type: "category",
-  },
-  {
-    id: "11",
-    title: "Doorstep",
-    description: "Cash pickup/cheque collection",
-    iconName: "truck",
-    type: "category",
-  },
-  {
-    id: "12",
-    title: "Govt Schemes",
-    description: "PMJJBY, PMSBY",
-    iconName: "users",
-    type: "category",
-  },
+  { id: "5", title: "Loans", description: "Car, home, education loans", iconName: "credit-card", type: "category" },
+  { id: "6", title: "Account Services", description: "Nominee, alerts, statement", iconName: "file-text", type: "category" },
+  { id: "7", title: "Tax & Investments", description: "TDS, 15G/H, Mutual Funds", iconName: "trending-up", type: "category" },
+  { id: "8", title: "Cheque Book", description: "Order or stop cheque book", iconName: "book", type: "category" },
+  { id: "9", title: "Pension Services", description: "Pension info, forms", iconName: "user", type: "category" },
+  { id: "10", title: "Locker", description: "Manage locker services", iconName: "lock", type: "category" },
+  { id: "11", title: "Doorstep", description: "Cash pickup/cheque collection", iconName: "truck", type: "category" },
+  { id: "12", title: "Govt Schemes", description: "PMJJBY, PMSBY", iconName: "users", type: "category" },
 ];
 
 const TOLL_FREE_NUMBERS: TollFreeNumber[] = [
@@ -133,11 +63,7 @@ const QuickActionItem = ({
 }) => (
   <TouchableOpacity style={styles.quickRow} onPress={onPress}>
     <View style={styles.quickLeft}>
-      <Feather
-        name={item.iconName}
-        size={22}
-        color={styles.primaryColor.color}
-      />
+      <Feather name={item.iconName} size={22} color={styles.primaryColor.color} />
       <Text style={styles.quickTitle}>{item.title}</Text>
     </View>
     <Feather name="chevron-right" size={20} color="#aaa" />
@@ -153,11 +79,7 @@ const ServiceCard = ({
 }) => (
   <TouchableOpacity onPress={onPress} style={styles.card}>
     <View style={{ flex: 1, padding: 14 }}>
-      <Feather
-        name={item.iconName}
-        size={30}
-        color={styles.primaryColor.color}
-      />
+      <Feather name={item.iconName} size={30} color={styles.primaryColor.color} />
       <Text style={styles.cardTitle}>{item.title}</Text>
       <Text style={styles.cardDesc}>{item.description}</Text>
     </View>
@@ -176,31 +98,37 @@ export default function ServiceRequestScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      {/* HEADER */}
-      <View style={styles.header}>
-        <TouchableOpacity>
-          <Feather name="chevron-left" size={26} color="#000" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Service Request</Text>
-        <Feather name="menu" size={24} color="#000" />
+    <SafeAreaView style={styles.container}>
+
+      {/* 🔵 BLUE HEADER */}
+      <View style={styles.blueHeader}>
+        
+        <Text style={styles.headerText}>Service Request</Text>
       </View>
 
-      <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={{ paddingBottom: 60 }}
-        showsVerticalScrollIndicator={false}
-      >
+      {/* ⚪ WHITE CONTENT */}
+      <ScrollView style={styles.whiteArea} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
+
+        {/* Top Row (Back + Menu) */}
+        <View style={styles.topRow}>
+          <TouchableOpacity>
+            <Feather name="chevron-left" size={26} color="#000" />
+          </TouchableOpacity>
+
+          <View style={{ width: 20 }} />
+
+          <TouchableOpacity>
+            <Feather name="menu" size={26} color="#000" />
+          </TouchableOpacity>
+        </View>
+
         {/* QUICK ACTIONS */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Quick Access</Text>
+
           <View style={styles.quickWrapper}>
             {QUICK_ACTIONS.map((item) => (
-              <QuickActionItem
-                key={item.id}
-                item={item}
-                onPress={() => handlePress(item.id, item.title)}
-              />
+              <QuickActionItem key={item.id} item={item} onPress={() => handlePress(item.id, item.title)} />
             ))}
           </View>
         </View>
@@ -208,13 +136,10 @@ export default function ServiceRequestScreen() {
         {/* GRID SERVICES */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>All Services</Text>
+
           <View style={styles.grid}>
             {SERVICE_CATEGORIES.map((item) => (
-              <ServiceCard
-                key={item.id}
-                item={item}
-                onPress={() => handlePress(item.id, item.title)}
-              />
+              <ServiceCard key={item.id} item={item} onPress={() => handlePress(item.id, item.title)} />
             ))}
           </View>
         </View>
@@ -225,57 +150,69 @@ export default function ServiceRequestScreen() {
 
           <View style={styles.tollNumbers}>
             {TOLL_FREE_NUMBERS.map((t) => (
-              <TouchableOpacity
-                key={t.id}
-                style={styles.tollBtn}
-                onPress={() => callNumber(t.number)}
-              >
+              <TouchableOpacity key={t.id} style={styles.tollBtn} onPress={() => callNumber(t.number)}>
                 <Text style={styles.tollNum}>{t.number}</Text>
               </TouchableOpacity>
             ))}
           </View>
 
-          <Text style={styles.tollInfo}>
-            Tap on a number to call customer support.
-          </Text>
+          <Text style={styles.tollInfo}>Tap on a number to call customer support.</Text>
         </View>
+
+        {/* SBI LOGO */}
+        <View style={styles.bottomLogoWrap}>
+          <NBImage source={require("@/assets/images/sbi.png")} style={styles.bottomLogo} resizeMode="contain" />
+        </View>
+
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
 // -------------------- STYLES --------------------
-
 const styles = StyleSheet.create({
   primaryColor: { color: "#0B3A75" },
 
   container: {
     flex: 1,
-    backgroundColor: "#F5F6FA",
+    backgroundColor: "#0B3A75",
   },
 
-  // HEADER
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 18,
-    paddingTop: 50,
-    paddingBottom: 16,
-    backgroundColor: "#fff",
-    borderBottomWidth: 1,
-    borderColor: "#eee",
+  // 🔵 BLUE HEADER
+  blueHeader: {
+    height: 110,
+     marginTop:-20,
+    backgroundColor: "#0B3A75",
+    justifyContent: "flex-end",
+    paddingHorizontal: 20,
+    paddingBottom: 14,
   },
-  headerTitle: {
-    fontSize: 20,
+  headerText: {
+    color: "#fff",
+    fontSize: 26,
     fontWeight: "700",
-    color: "#111",
   },
 
-  // SECTION
+  // ⚪ WHITE BODY
+  whiteArea: {
+    flex: 1,
+    backgroundColor: "#fff",
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+  },
+
+  // TOP ROW
+  topRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+  },
+
+  // SECTIONS
   section: {
-    paddingHorizontal: 18,
-    marginTop: 20,
+    marginTop: 10,
   },
   sectionTitle: {
     fontSize: 17,
@@ -322,10 +259,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 14,
     marginBottom: 16,
-    padding: 0,
     borderWidth: 1,
     borderColor: "#eee",
-    elevation: 3,
+    elevation: 2,
   },
   cardTitle: {
     marginTop: 12,
@@ -339,10 +275,9 @@ const styles = StyleSheet.create({
     color: "#666",
   },
 
-  // TOLL SECTION
+  // TOLL FREE
   tollSection: {
-    marginHorizontal: 18,
-    marginTop: 25,
+    marginTop: 30,
     backgroundColor: "#fff",
     padding: 18,
     borderRadius: 14,
@@ -375,5 +310,16 @@ const styles = StyleSheet.create({
     color: "#666",
     marginTop: 8,
     fontSize: 13,
+  },
+
+  // SBI LOGO
+  bottomLogoWrap: {
+    marginTop: 30,
+    padding: 30,
+    alignItems: "center",
+  },
+  bottomLogo: {
+    width: "80%",
+    height: 60,
   },
 });
