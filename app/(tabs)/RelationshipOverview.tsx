@@ -55,16 +55,35 @@ export default function RelationshipOverview() {
           <TextInput placeholder="Search" style={styles.searchInput} />
         </View>
 
-        {/* 🔵 TABS */}
-        <View style={styles.tabs}>
+        {/* 🔵 SCROLLABLE TABS */}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingRight: 20 }}
+          style={{ marginTop: 20 }}
+        >
           <TouchableOpacity style={styles.activeTab}>
             <Text style={styles.activeTabText}>My Balance</Text>
           </TouchableOpacity>
 
-          <Text style={styles.tab}>My Deposits</Text>
-          <Text style={styles.tab}>My Borrowings</Text>
-          <Text style={styles.tab}>My Insurance</Text>
-        </View>
+          <View style={{ width: 12 }} />
+
+          <TouchableOpacity>
+            <Text style={styles.tab}>My Deposits</Text>
+          </TouchableOpacity>
+
+          <View style={{ width: 12 }} />
+
+          <TouchableOpacity>
+            <Text style={styles.tab}>My Borrowings</Text>
+          </TouchableOpacity>
+
+          <View style={{ width: 12 }} />
+
+          <TouchableOpacity>
+            <Text style={styles.tab}>My Insurance</Text>
+          </TouchableOpacity>
+        </ScrollView>
 
         {/* 💰 BALANCE CARD */}
         <View style={styles.balanceCard}>
@@ -149,6 +168,7 @@ export default function RelationshipOverview() {
             source={require("@/assets/images/sbi.png")}
             style={styles.bottomLogo}
             resizeMode="contain"
+            alt="SBI logo"
           />
         </View>
 
@@ -166,10 +186,9 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
   },
 
-  // 🔵 BLUE HEADER
   blueHeader: {
     height: 110,
-     marginTop:-20,
+    marginTop: -20,
     backgroundColor: COLORS.primary,
     justifyContent: "flex-end",
     paddingHorizontal: 20,
@@ -182,7 +201,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
 
-  // ⚪ WHITE CONTENT
   whiteArea: {
     flex: 1,
     backgroundColor: COLORS.white,
@@ -192,7 +210,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
 
-  // ⭐ TOP ROW WITH AVATAR + ICONS
   topRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -216,7 +233,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 
-  // 🔍 SEARCH BAR
   searchContainer: {
     marginTop: 18,
     backgroundColor: "#EFEFEF",
@@ -233,12 +249,9 @@ const styles = StyleSheet.create({
     color: COLORS.text,
   },
 
-  // 🔵 TABS
   tabs: {
     flexDirection: "row",
-    marginTop: 20,
     alignItems: "center",
-    justifyContent: "space-between",
   },
 
   activeTab: {
@@ -259,7 +272,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 
-  // 💰 BALANCE CARD
   balanceCard: {
     backgroundColor: COLORS.white,
     borderRadius: 12,
@@ -315,7 +327,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
 
-  // TRANSACTIONS
   transHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -368,7 +379,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
 
-  // SBI LOGO
   bottomLogoWrap: {
     padding: 30,
     alignItems: "center",

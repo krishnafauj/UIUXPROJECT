@@ -212,6 +212,7 @@ export default function YonoHomeScreen() {
 
             <Image
               source={require("@/assets/images/sbi.png")}
+              alt="SBI logo"
               style={styles.brandLogo}
               resizeMode="contain"
             />
@@ -316,6 +317,7 @@ export default function YonoHomeScreen() {
                   source={require("@/assets/images/sbi.png")}
                   style={styles.bottomLogo}
                   resizeMode="contain"
+                  alt="SBI logo"
                 />
               </View>
             </>

@@ -118,28 +118,28 @@ export default function SideDrawer({ visible, onClose }: any) {
             <DrawerItem
               label="Insurance"
               icon="shield"
-              path="/(tabs)/Insurance"
+              path="/(tabs)/Notfound"
               onClose={onClose}
             />
 
             <DrawerItem
               label="Investments"
               icon="trending-up"
-              path="/(tabs)/Investments"
+              path="/(tabs)/Notfound"
               onClose={onClose}
             />
 
             <DrawerItem
               label="Loan"
               icon="credit-card"
-              path="/(tabs)/Loan"
+              path="/(tabs)/Notfound"
               onClose={onClose}
             />
 
             <DrawerItem
               label="Credit Card"
               icon="file-text"
-              path="/(tabs)/CreditCard"
+              path="/(tabs)/Notfound"
               onClose={onClose}
             />
            
@@ -149,8 +149,8 @@ export default function SideDrawer({ visible, onClose }: any) {
           </View>
 
           <View style={styles.section}>
-            <DrawerItem label="Settings" icon="settings" path="/(tabs)/Settings" onClose={onClose} />
-            <DrawerItem label="Support" icon="life-buoy" path="/(tabs)/Support" onClose={onClose} />
+            <DrawerItem label="Settings" icon="settings" path="/(tabs)/Notfound" onClose={onClose} />
+            <DrawerItem label="Support" icon="life-buoy" path="/(tabs)/Notfound" onClose={onClose} />
           </View>
 
           {/* give extra space before bottom logo */}
@@ -163,6 +163,7 @@ export default function SideDrawer({ visible, onClose }: any) {
             source={require("@/assets/images/sbi.png")}
             style={styles.bottomLogo}
             resizeMode="contain"
+            alt="SBI logo"
           />
         </View>
 

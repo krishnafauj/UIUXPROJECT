@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Pressable
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -22,8 +23,18 @@ export default function MyProfileScreen() {
 
       {/* 🔵 BLUE HEADER */}
       <View style={styles.blueHeader}>
-        <Text style={styles.headerTitle}>My Profile</Text>
-      </View>
+        <Pressable style={styles.headerIconBtn}>
+    <Feather name="edit-2" size={20} color={COLORS.white} />
+  </Pressable>
+
+  {/* Center Title */}
+  <Text style={styles.headerTitle}>My Profile</Text>
+
+  {/* Right - Settings Icon */}
+  <Pressable style={styles.headerIconBtn}>
+    <Feather name="settings" size={22} color={COLORS.white} />
+  </Pressable>
+      </View> 
 
       {/* WHITE SCROLL AREA */}
       <ScrollView style={styles.whiteArea} showsVerticalScrollIndicator={false}>
@@ -214,6 +225,8 @@ export default function MyProfileScreen() {
         <View style={styles.bottomLogoWrap}>
           <Image
             source={require("@/assets/images/sbi.png")}
+            alt="SBI logo"
+            
             style={styles.bottomLogo}
             resizeMode="contain"
           />
@@ -233,21 +246,23 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
   },
 
-  // 🔵 Blue Header
   blueHeader: {
-    height: 110,
-    backgroundColor: COLORS.primary,
-    justifyContent: "flex-end",
-    paddingHorizontal: 20,
-    paddingBottom: 14,
-    marginTop:-20,
-  },
+  height: 110,
+  backgroundColor: COLORS.primary,
+  paddingHorizontal: 20,
+  paddingBottom: 18,
+  marginTop: -20,
+
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "flex-end",
+},
 
   headerTitle: {
-    color: COLORS.white,
-    fontSize: 26,
-    fontWeight: "700",
-  },
+  color: COLORS.white,
+  fontSize: 22,
+  fontWeight: "700",
+},
 
   // White Body
   whiteArea: {
@@ -268,6 +283,9 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     marginBottom: 20,
   },
+  headerIconBtn: {
+  padding: 6,
+},
 
   profileImageContainer: {
     width: 48,

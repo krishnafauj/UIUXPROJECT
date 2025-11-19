@@ -161,7 +161,7 @@ export default function ServiceRequestScreen() {
 
         {/* SBI LOGO */}
         <View style={styles.bottomLogoWrap}>
-          <NBImage source={require("@/assets/images/sbi.png")} style={styles.bottomLogo} resizeMode="contain" />
+          <NBImage source={require("@/assets/images/sbi.png")} alt="SBI logo" style={styles.bottomLogo} resizeMode="contain" />
         </View>
 
       </ScrollView>

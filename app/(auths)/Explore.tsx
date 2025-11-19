@@ -46,6 +46,7 @@ export default function ExploreScreen() {
                 {/* 🔵 SBI LOGO INSTEAD OF DOT/CHIP */}
                 <Image
                   source={require("@/assets/images/sbi.png")}
+                  alt="SBI logo"
                   style={styles.sbiLogo}
                   resizeMode="contain"
                 />
@@ -120,8 +121,8 @@ export default function ExploreScreen() {
               style={styles.primaryBtn}
               onPress={() => router.push("/SimSelectionScreen")}
             >
-              <Text style={styles.btnText}>Register Now</Text>
-              <Feather name="arrow-right" size={16} color={COLORS.white} />
+              <Text style={styles.btnText}>Register Now for Upi</Text>
+              <Feather name="external-link" size={20} color={COLORS.white} />
             </Pressable>
           </View>
 

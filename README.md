@@ -1,50 +1,149 @@
-# Welcome to your Expo app 👋
+# 🚀 YONO SBI – Modern UI/UX (React Native + Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern, beautifully redesigned **YONO SBI mobile experience** built using **React Native**, **Expo**, and **EAS Build**.  
+This project focuses heavily on **UI/UX design**, clean animations, smooth navigation, and production-ready component architecture — all inspired by SBI’s design language.
 
-## Get started
+> **Note:** This is *not* an official SBI application.  
+> It is a personal UI/UX project created to demonstrate frontend skills.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 📱 Features
 
-2. Start the app
+### 🔵 SBI-Themed UI System
+- Clean blue header with modern rounded shapes  
+- SBI-inspired color palette  
+- Modern typography & icons  
+- Consistent spacing, shadows, and visual hierarchy  
 
-   ```bash
-   npx expo start
-   ```
+### 👤 Authentication Screens
+- Login using **MPIN**  
+- Login using **Username**  
+- Quick Pay shortcuts  
 
-In the output, you'll find options to open the app in a
+### 🏠 Home Dashboard
+- Collapsible groups: **Banking**, **Payments**, **Lifestyle**  
+- Horizontal quick actions  
+- Recent transactions  
+- Full SBI branding  
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### 🔍 Explore / Register Flow
+- Custom onboarding screens  
+- New user registration flow  
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 👤 Profile Screen
+- Editable profile  
+- Settings option  
+- KYC-style information layout (DOB, Aadhaar, PAN, Address, etc.)
 
-## Get a fresh project
+### 📂 Drawer Navigation
+- Custom animated sidebar  
+- Smooth open + close interactions  
 
-When you're ready, run:
+### 🏗 Expo + EAS Compatible
+- Custom Splash Screen  
+- App Icon  
+- File-based routing (Expo Router)  
+- APK-ready using EAS Build  
+
+---
+
+## 📁 Project Structure
 
 ```bash
-npm run reset-project
-```
+app/
+  (tabs)/
+    Home.tsx
+    Explore.tsx
+    Profile.tsx
+  components/
+    SideDrawer.tsx
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+assets/
+  images/
+    sbi.png
+    logo.png
+    splash-icon.png
 
-## Learn more
+app.json
+eas.json
+README.md
+🛠 Getting Started
+1️⃣ Install Dependencies
+npm install
 
-To learn more about developing your project with Expo, look at the following resources:
+2️⃣ Start the App
+npx expo start
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+You can open the application in:
 
-Join our community of developers creating universal apps.
+Android Emulator
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+iOS Simulator
+
+Expo Go (limited)
+
+Expo Development Build
+
+🧪 Health Check Before Building
+
+Run Expo Doctor:
+
+npx expo-doctor
+
+
+Automatically fix dependency issues:
+
+npx expo install
+
+📦 Build the APK
+☁️ Cloud APK (Recommended)
+eas build -p android --profile preview
+
+💻 Local APK (Requires Android SDK)
+eas build -p android --profile preview --local
+
+🖼 Screenshots
+
+Upload your screenshots to a folder named /screenshots.
+
+🔷 Home Screen
+./screenshots/home.png
+
+🔷 Profile Screen
+./screenshots/profile.png
+
+🔷 Login Screen
+./screenshots/login.png
+
+📝 About This Project
+
+This project is a complete UI/UX redesign of the YONO SBI app, built to showcase modern React Native development practices.
+
+It demonstrates:
+
+✔ Clean UI architecture
+✔ Smooth animations
+✔ Modular React Native components
+✔ Navigation using Expo Router
+✔ Custom drawer + action cards
+✔ Consistent theme system
+✔ EAS Build integration
+
+Ideal For:
+
+UI/UX case studies
+
+React Native portfolios
+
+Developer job applications
+
+Design/engineering demonstrations
+
+🧑‍💻 Author
+Krishna Faujdar
+
+React Native Developer & UI/UX Designer
+
+Feel free to connect & collaborate!

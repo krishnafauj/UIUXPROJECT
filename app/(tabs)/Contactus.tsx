@@ -101,6 +101,7 @@ export default function ContactUs() {
         <View style={styles.bottomLogoWrap}>
           <Image
             source={require("@/assets/images/sbi.png")}
+            alt="SBI logo"
             style={styles.bottomLogo}
             resizeMode="contain"
           />

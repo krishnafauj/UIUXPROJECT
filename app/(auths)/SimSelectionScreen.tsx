@@ -72,6 +72,7 @@ export default function SimSelectScreen() {
         <Image
           source={require("../../assets/images/sbi.png")}
           style={{ width: 90, height: 90, resizeMode: "contain" }}
+          alt="SBI logo"
         />
       </View>
 
